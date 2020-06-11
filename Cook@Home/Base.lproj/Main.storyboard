@@ -23,7 +23,6 @@
         <!--Navigation Controller-->
         <scene sceneID="8cP-bx-MSt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Okf-cr-HuN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="XdA-nt-ezn" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="quU-wq-IWf">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -33,13 +32,14 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qKs-Dc-Saz"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Okf-cr-HuN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1399" y="132"/>
         </scene>
         <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="Login" customClass="RegisterLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" id="BYZ-38-t0r" userLabel="Login" customClass="RegisterLoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,16 +72,13 @@
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IFX-jd-3xG"/>
+                                    <action selector="loginBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sGm-co-qVZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXD-yq-JKE">
                                 <rect key="frame" x="88.666666666666686" y="716" width="198" height="30"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <state key="normal" title="Not a member? Sign up now!"/>
-                                <connections>
-                                    <segue destination="wmN-pU-79H" kind="show" id="WQw-cK-Oy8"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -103,10 +100,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Bwe-87-htu"/>
+                    <navigationItem key="navigationItem" id="Bwe-87-htu">
+                        <connections>
+                            <outlet property="titleView" destination="8bC-Xf-vdC" id="OCi-an-8JN"/>
+                        </connections>
+                    </navigationItem>
                     <connections>
-                        <outlet property="loginEmailText" destination="jhM-5Z-Kg9" id="1rH-O8-Shr"/>
-                        <outlet property="loginPassText" destination="Rvd-qi-sKQ" id="NZN-GQ-fkY"/>
+                        <outlet property="loginEmailText" destination="jhM-5Z-Kg9" id="PTW-eL-jfS"/>
+                        <outlet property="loginPassText" destination="Rvd-qi-sKQ" id="VQS-th-tbN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -122,26 +123,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t1R-gt-6E4">
-                                <rect key="frame" x="32" y="128" width="311" height="34"/>
+                                <rect key="frame" x="32" y="84" width="311" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSN-qy-gMs">
-                                <rect key="frame" x="32" y="194" width="311" height="34"/>
+                                <rect key="frame" x="32" y="150" width="311" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZPL-Jw-8K9">
-                                <rect key="frame" x="32" y="260" width="311" height="34"/>
+                                <rect key="frame" x="32" y="216" width="311" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fm6-sz-l9z">
-                                <rect key="frame" x="32" y="326" width="311" height="39"/>
+                                <rect key="frame" x="32" y="282" width="311" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
-                                    <action selector="registerBtn:" destination="wmN-pU-79H" eventType="touchUpInside" id="FEo-kO-oRl"/>
+                                    <action selector="registerBtn:" destination="wmN-pU-79H" eventType="touchUpInside" id="4Mu-mL-yXR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -162,11 +163,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="P7w-P1-OzW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Tzu-ZA-IfF"/>
                     <connections>
-                        <outlet property="registerEmailText" destination="t1R-gt-6E4" id="LbA-MZ-XoU"/>
-                        <outlet property="registerPassText" destination="CSN-qy-gMs" id="HdK-xu-1Da"/>
-                        <outlet property="registerRepeatPassText" destination="ZPL-Jw-8K9" id="719-0b-HIn"/>
+                        <outlet property="registerEmailText" destination="t1R-gt-6E4" id="aQd-MT-eKp"/>
+                        <outlet property="registerPassText" destination="CSN-qy-gMs" id="sah-LY-Gy2"/>
+                        <outlet property="registerRepeatPassText" destination="ZPL-Jw-8K9" id="Rrd-rU-mYG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7u-K8-Cck" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,7 +176,7 @@
         <!--Homepage-->
         <scene sceneID="6wT-WF-0qu">
             <objects>
-                <viewController id="f1f-3H-Y1s" userLabel="Homepage" sceneMemberID="viewController">
+                <viewController id="f1f-3H-Y1s" userLabel="Homepage" customClass="HomepageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yV5-Xo-0bl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,7 +235,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Xr-3o-P4k">
-                                <rect key="frame" x="16" y="445.33333333333331" width="343" height="239.66666666666669"/>
+                                <rect key="frame" x="16" y="445.33333333333331" width="343" height="190.66666666666669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeList" rowHeight="140" id="IQg-jn-LjU">
@@ -277,7 +277,7 @@
                                 <sections/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCR-4W-dUh">
-                                <rect key="frame" x="169.66666666666666" y="695.33333333333337" width="36" height="31.666666666666629"/>
+                                <rect key="frame" x="169.66666666666666" y="646.33333333333337" width="36" height="31.666666666666629"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="04y-hZ-Phv"/>
@@ -323,6 +323,8 @@
                         <viewLayoutGuide key="safeArea" id="WrQ-bR-qnF"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="52Y-5L-pFa"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fE-pi-AaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -333,39 +335,39 @@
             <objects>
                 <viewController id="kXH-tK-JHi" userLabel="Add recipe" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Tv-eq-Jbk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs2-BD-NVl">
-                                <rect key="frame" x="16.000000000000007" y="16" width="98.666666666666686" height="21"/>
+                                <rect key="frame" x="16.000000000000007" y="60" width="98.666666666666686" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bmy-ta-aLb">
-                                <rect key="frame" x="16" y="45" width="351" height="34"/>
+                                <rect key="frame" x="16" y="89" width="351" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3o-Nz-Q9O">
-                                <rect key="frame" x="16" y="87" width="89.666666666666671" height="21"/>
+                                <rect key="frame" x="16" y="131" width="89.666666666666671" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tg9-wd-54P">
-                                <rect key="frame" x="16" y="116" width="351" height="34"/>
+                                <rect key="frame" x="16" y="160" width="351" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPA-Rg-YpC">
-                                <rect key="frame" x="16" y="158" width="142" height="21"/>
+                                <rect key="frame" x="16" y="202" width="142" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Ingredients" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f78-E0-jUz">
-                                <rect key="frame" x="16" y="187" width="343" height="150"/>
+                                <rect key="frame" x="16" y="231" width="343" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="4cd-zn-NeK"/>
@@ -375,13 +377,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cooking instruction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="urb-0E-3oV">
-                                <rect key="frame" x="16" y="345" width="149" height="21"/>
+                                <rect key="frame" x="16" y="389" width="149" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Ingredients" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="E6o-ka-mmA">
-                                <rect key="frame" x="16" y="374" width="343" height="150"/>
+                                <rect key="frame" x="16" y="418" width="343" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Pky-68-kdb"/>
@@ -391,16 +393,16 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaI-WG-VTk">
-                                <rect key="frame" x="64" y="548" width="247" height="30"/>
+                                <rect key="frame" x="64" y="592" width="247" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Add Image"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VIY-bJ-gRz">
-                                <rect key="frame" x="64" y="605" width="49" height="30"/>
+                                <rect key="frame" x="64" y="649" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THA-en-IQF">
-                                <rect key="frame" x="263" y="605" width="48" height="30"/>
+                                <rect key="frame" x="263" y="649" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                             </button>
                         </subviews>
@@ -448,53 +450,53 @@
             <objects>
                 <viewController id="Qsx-X4-71a" userLabel="Recipe details" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SS8-r7-Mxh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L41-Ef-ikn">
-                                <rect key="frame" x="8" y="0.0" width="359" height="150"/>
+                                <rect key="frame" x="8" y="44" width="359" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="FGE-Hq-wCM"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sT2-t3-5r1">
-                                <rect key="frame" x="16.000000000000007" y="158" width="116.66666666666669" height="23"/>
+                                <rect key="frame" x="16.000000000000007" y="202" width="116.66666666666669" height="23"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mcg-01-z95">
-                                <rect key="frame" x="48.000000000000007" y="189" width="102.66666666666669" height="21"/>
+                                <rect key="frame" x="48.000000000000007" y="233" width="102.66666666666669" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0L-KW-lxb">
-                                <rect key="frame" x="250" y="218" width="31" height="21"/>
+                                <rect key="frame" x="250" y="262" width="31" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7P-EU-0Uw">
-                                <rect key="frame" x="16" y="247" width="85.666666666666671" height="21"/>
+                                <rect key="frame" x="16" y="291" width="85.666666666666671" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to cook:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcq-y8-dOd">
-                                <rect key="frame" x="16.000000000000007" y="572" width="100.66666666666669" height="21"/>
+                                <rect key="frame" x="16.000000000000007" y="616" width="100.66666666666669" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dislike" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVm-7v-8cS">
-                                <rect key="frame" x="301" y="218" width="50" height="21"/>
+                                <rect key="frame" x="301" y="262" width="50" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="uF8-Dk-vni">
-                                <rect key="frame" x="16" y="276" width="343" height="280"/>
+                                <rect key="frame" x="16" y="320" width="343" height="280"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -502,7 +504,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="lae-Oi-gMq">
-                                <rect key="frame" x="16" y="601" width="343" height="280"/>
+                                <rect key="frame" x="16" y="645" width="343" height="280"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>

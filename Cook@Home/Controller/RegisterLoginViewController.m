@@ -28,6 +28,7 @@
             
         }
     }];
+    
 }
 
 - (IBAction)registerBtn:(id)sender {
@@ -198,6 +199,7 @@
     NSString *uid;
     NSString *email;
     
+    // Getting the unique key value generated from Firebase Auth and storing it.
     FIRUser *user = [FIRAuth auth].currentUser;
     if(user){
         uid = user.uid;

@@ -11,6 +11,8 @@
 		376C6B6E156F03693CCF7593 /* Pods_Cook_Home_Cook_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9382073701C9BC2CDA7391CB /* Pods_Cook_Home_Cook_HomeUITests.framework */; };
 		B04F3FC5248CB6D90033E4BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04F3FC4248CB6D90033E4BC /* GoogleService-Info.plist */; };
 		B04F3FD1248CBDC80033E4BC /* RegisterLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */; };
+		B04F3FD4249240630033E4BC /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD3249240630033E4BC /* HomepageViewController.m */; };
+		B04F3FD7249243C80033E4BC /* AddRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD6249243C80033E4BC /* AddRecipeViewController.m */; };
 		B091453D2480DC54000C6389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B091453C2480DC54000C6389 /* AppDelegate.m */; };
 		B09145402480DC54000C6389 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B091453F2480DC54000C6389 /* SceneDelegate.m */; };
 		B09145432480DC54000C6389 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09145422480DC54000C6389 /* ViewController.m */; };
@@ -53,6 +55,10 @@
 		B04F3FC4248CB6D90033E4BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B04F3FCF248CBDC80033E4BC /* RegisterLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterLoginViewController.h; sourceTree = "<group>"; };
 		B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterLoginViewController.m; sourceTree = "<group>"; };
+		B04F3FD2249240630033E4BC /* HomepageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomepageViewController.h; sourceTree = "<group>"; };
+		B04F3FD3249240630033E4BC /* HomepageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
+		B04F3FD5249243C80033E4BC /* AddRecipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddRecipeViewController.h; sourceTree = "<group>"; };
+		B04F3FD6249243C80033E4BC /* AddRecipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddRecipeViewController.m; sourceTree = "<group>"; };
 		B09145382480DC54000C6389 /* Cook@Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cook@Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B091453B2480DC54000C6389 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B091453C2480DC54000C6389 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -131,6 +137,10 @@
 			children = (
 				B04F3FCF248CBDC80033E4BC /* RegisterLoginViewController.h */,
 				B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */,
+				B04F3FD2249240630033E4BC /* HomepageViewController.h */,
+				B04F3FD3249240630033E4BC /* HomepageViewController.m */,
+				B04F3FD5249243C80033E4BC /* AddRecipeViewController.h */,
+				B04F3FD6249243C80033E4BC /* AddRecipeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -439,7 +449,9 @@
 				B09145432480DC54000C6389 /* ViewController.m in Sources */,
 				B091453D2480DC54000C6389 /* AppDelegate.m in Sources */,
 				B09145492480DC54000C6389 /* Cook_Home.xcdatamodeld in Sources */,
+				B04F3FD7249243C80033E4BC /* AddRecipeViewController.m in Sources */,
 				B09145402480DC54000C6389 /* SceneDelegate.m in Sources */,
+				B04F3FD4249240630033E4BC /* HomepageViewController.m in Sources */,
 				B04F3FD1248CBDC80033E4BC /* RegisterLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
