@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>690752347753-2c3hcqte2u8ov1sraqsb9iho85nvh110.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.690752347753-2c3hcqte2u8ov1sraqsb9iho85nvh110</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB2KZA8olgowjptg0n9Mrb86b_EiyxR3iU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>690752347753</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Roy.Cook-Home</string>
+	<key>PROJECT_ID</key>
+	<string>cookathome-f80d7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cookathome-f80d7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:690752347753:ios:8bcb10c376ea719c43ccf8</string>
+	<key>DATABASE_URL</key>
+	<string>https://cookathome-f80d7.firebaseio.com</string>
+</dict>
+</plist>
