@@ -1,24 +1,30 @@
 //
-//  AddRecipeViewController.m
+//  TabbedViewController.m
 //  Cook@Home
 //
-//  Created by Roy felix Adekie on 11/6/20.
+//  Created by Roy felix Adekie on 12/6/20.
 //  Copyright © 2020 Roy felix Adekie. All rights reserved.
 //
 
-#import "AddRecipeViewController.h"
+#import "TabbedViewController.h"
 
-@interface AddRecipeViewController ()
+@interface TabbedViewController ()
 
 @end
 
-@implementation AddRecipeViewController
+@implementation TabbedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationController.navigationBarHidden = NO;
+    
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
 
 /*
 #pragma mark - Navigation
@@ -30,12 +36,4 @@
 }
 */
 
-- (IBAction)cancelBtn:(id)sender {
-}
-
-- (IBAction)submitBtn:(id)sender {
-}
-
-- (IBAction)addImageBtn:(id)sender {
-}
 @end

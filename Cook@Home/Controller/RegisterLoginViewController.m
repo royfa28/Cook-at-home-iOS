@@ -80,6 +80,7 @@
 
 -(void)goToHomeScreen{
     UIViewController *uvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"Homepage"];
+    [self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController pushViewController:uvc animated:YES];
 }
 

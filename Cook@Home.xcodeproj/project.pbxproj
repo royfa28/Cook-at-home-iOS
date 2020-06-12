@@ -13,6 +13,8 @@
 		B04F3FD1248CBDC80033E4BC /* RegisterLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */; };
 		B04F3FD4249240630033E4BC /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD3249240630033E4BC /* HomepageViewController.m */; };
 		B04F3FD7249243C80033E4BC /* AddRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD6249243C80033E4BC /* AddRecipeViewController.m */; };
+		B04F3FE024931F8C0033E4BC /* TabbedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FDF24931F8C0033E4BC /* TabbedViewController.m */; };
+		B04F3FE324931FCB0033E4BC /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FE224931FCB0033E4BC /* NavigationViewController.m */; };
 		B091453D2480DC54000C6389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B091453C2480DC54000C6389 /* AppDelegate.m */; };
 		B09145402480DC54000C6389 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B091453F2480DC54000C6389 /* SceneDelegate.m */; };
 		B09145432480DC54000C6389 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09145422480DC54000C6389 /* ViewController.m */; };
@@ -59,6 +61,10 @@
 		B04F3FD3249240630033E4BC /* HomepageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepageViewController.m; sourceTree = "<group>"; };
 		B04F3FD5249243C80033E4BC /* AddRecipeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddRecipeViewController.h; sourceTree = "<group>"; };
 		B04F3FD6249243C80033E4BC /* AddRecipeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddRecipeViewController.m; sourceTree = "<group>"; };
+		B04F3FDE24931F8C0033E4BC /* TabbedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabbedViewController.h; sourceTree = "<group>"; };
+		B04F3FDF24931F8C0033E4BC /* TabbedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabbedViewController.m; sourceTree = "<group>"; };
+		B04F3FE124931FCB0033E4BC /* NavigationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		B04F3FE224931FCB0033E4BC /* NavigationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		B09145382480DC54000C6389 /* Cook@Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cook@Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B091453B2480DC54000C6389 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B091453C2480DC54000C6389 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -135,12 +141,16 @@
 		B050E44B248248EB00C62DF2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B04F3FCF248CBDC80033E4BC /* RegisterLoginViewController.h */,
-				B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */,
-				B04F3FD2249240630033E4BC /* HomepageViewController.h */,
-				B04F3FD3249240630033E4BC /* HomepageViewController.m */,
 				B04F3FD5249243C80033E4BC /* AddRecipeViewController.h */,
 				B04F3FD6249243C80033E4BC /* AddRecipeViewController.m */,
+				B04F3FD2249240630033E4BC /* HomepageViewController.h */,
+				B04F3FD3249240630033E4BC /* HomepageViewController.m */,
+				B04F3FE124931FCB0033E4BC /* NavigationViewController.h */,
+				B04F3FE224931FCB0033E4BC /* NavigationViewController.m */,
+				B04F3FCF248CBDC80033E4BC /* RegisterLoginViewController.h */,
+				B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */,
+				B04F3FDE24931F8C0033E4BC /* TabbedViewController.h */,
+				B04F3FDF24931F8C0033E4BC /* TabbedViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -447,10 +457,12 @@
 			files = (
 				B09145512480DC55000C6389 /* main.m in Sources */,
 				B09145432480DC54000C6389 /* ViewController.m in Sources */,
+				B04F3FE324931FCB0033E4BC /* NavigationViewController.m in Sources */,
 				B091453D2480DC54000C6389 /* AppDelegate.m in Sources */,
 				B09145492480DC54000C6389 /* Cook_Home.xcdatamodeld in Sources */,
 				B04F3FD7249243C80033E4BC /* AddRecipeViewController.m in Sources */,
 				B09145402480DC54000C6389 /* SceneDelegate.m in Sources */,
+				B04F3FE024931F8C0033E4BC /* TabbedViewController.m in Sources */,
 				B04F3FD4249240630033E4BC /* HomepageViewController.m in Sources */,
 				B04F3FD1248CBDC80033E4BC /* RegisterLoginViewController.m in Sources */,
 			);
