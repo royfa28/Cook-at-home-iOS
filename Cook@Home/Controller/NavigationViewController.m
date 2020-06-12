@@ -27,7 +27,8 @@
       NSLog(@"Error signing out: %@", signOutError);
       return;
     }else{
-        UIViewController *uvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"Login"];
+        UIViewController *uvc;
+        uvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"Login"];
         [self dismissViewControllerAnimated:YES completion:nil];
         [self.navigationController popToRootViewControllerAnimated:YES];
         NSLog(@"Signed out");

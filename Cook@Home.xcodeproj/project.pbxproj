@@ -10,6 +10,8 @@
 		1EDE2F44DB28AA5AD5605BE8 /* Pods_Cook_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC16592B6433CEF78B75CDBA /* Pods_Cook_Home.framework */; };
 		376C6B6E156F03693CCF7593 /* Pods_Cook_Home_Cook_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9382073701C9BC2CDA7391CB /* Pods_Cook_Home_Cook_HomeUITests.framework */; };
 		B01E4F572493786800B15BCC /* HomepageRecipesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E4F562493786800B15BCC /* HomepageRecipesCell.m */; };
+		B01E4F5D24939B1E00B15BCC /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E4F5C24939B1E00B15BCC /* RecipeDetailViewController.m */; };
+		B01E4F602493AA1600B15BCC /* MyRecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E4F5F2493AA1600B15BCC /* MyRecipeTableViewCell.m */; };
 		B04F3FC5248CB6D90033E4BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04F3FC4248CB6D90033E4BC /* GoogleService-Info.plist */; };
 		B04F3FD1248CBDC80033E4BC /* RegisterLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */; };
 		B04F3FD4249240630033E4BC /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD3249240630033E4BC /* HomepageViewController.m */; };
@@ -57,6 +59,10 @@
 		A518C93105DB362EE8884148 /* Pods-Cook@HomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cook@HomeTests.debug.xcconfig"; path = "Target Support Files/Pods-Cook@HomeTests/Pods-Cook@HomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B01E4F552493786800B15BCC /* HomepageRecipesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomepageRecipesCell.h; sourceTree = "<group>"; };
 		B01E4F562493786800B15BCC /* HomepageRecipesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomepageRecipesCell.m; sourceTree = "<group>"; };
+		B01E4F5B24939B1E00B15BCC /* RecipeDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipeDetailViewController.h; sourceTree = "<group>"; };
+		B01E4F5C24939B1E00B15BCC /* RecipeDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailViewController.m; sourceTree = "<group>"; };
+		B01E4F5E2493AA1600B15BCC /* MyRecipeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRecipeTableViewCell.h; sourceTree = "<group>"; };
+		B01E4F5F2493AA1600B15BCC /* MyRecipeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRecipeTableViewCell.m; sourceTree = "<group>"; };
 		B04F3FC4248CB6D90033E4BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B04F3FCF248CBDC80033E4BC /* RegisterLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterLoginViewController.h; sourceTree = "<group>"; };
 		B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterLoginViewController.m; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 			children = (
 				B01E4F552493786800B15BCC /* HomepageRecipesCell.h */,
 				B01E4F562493786800B15BCC /* HomepageRecipesCell.m */,
+				B01E4F5E2493AA1600B15BCC /* MyRecipeTableViewCell.h */,
+				B01E4F5F2493AA1600B15BCC /* MyRecipeTableViewCell.m */,
 			);
 			path = "View Cell";
 			sourceTree = "<group>";
@@ -164,6 +172,8 @@
 				B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */,
 				B04F3FDE24931F8C0033E4BC /* TabbedViewController.h */,
 				B04F3FDF24931F8C0033E4BC /* TabbedViewController.m */,
+				B01E4F5B24939B1E00B15BCC /* RecipeDetailViewController.h */,
+				B01E4F5C24939B1E00B15BCC /* RecipeDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -469,12 +479,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B09145512480DC55000C6389 /* main.m in Sources */,
+				B01E4F5D24939B1E00B15BCC /* RecipeDetailViewController.m in Sources */,
 				B09145432480DC54000C6389 /* ViewController.m in Sources */,
 				B04F3FE324931FCB0033E4BC /* NavigationViewController.m in Sources */,
 				B091453D2480DC54000C6389 /* AppDelegate.m in Sources */,
 				B09145492480DC54000C6389 /* Cook_Home.xcdatamodeld in Sources */,
 				B01E4F572493786800B15BCC /* HomepageRecipesCell.m in Sources */,
 				B04F3FD7249243C80033E4BC /* AddRecipeViewController.m in Sources */,
+				B01E4F602493AA1600B15BCC /* MyRecipeTableViewCell.m in Sources */,
 				B09145402480DC54000C6389 /* SceneDelegate.m in Sources */,
 				B04F3FE024931F8C0033E4BC /* TabbedViewController.m in Sources */,
 				B04F3FD4249240630033E4BC /* HomepageViewController.m in Sources */,

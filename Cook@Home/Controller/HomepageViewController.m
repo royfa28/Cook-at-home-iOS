@@ -72,8 +72,6 @@
                 
                 [self->data addObject:document.data];
                 [self.tableView reloadData];
-                NSString *database = self->data;
-                NSLog(@" %@", self->_recipes);
             }
                 
         }
@@ -93,6 +91,27 @@
      
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FIRDocumentSnapshot *recipe = _recipes[indexPath.row];
+
+}
+
+#pragma mark - Navigation
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    
+    // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    FIRDocumentSnapshot *recipe = _recipes[indexPath.row];
+    
+    if([segue.identifier isEqualToString:@"showRecipeDetail"]) {
+        
+        RecipeDetailViewController *destViewController = segue.destinationViewController;
+        destViewController.recipes = recipe;
+    }
 }
 
 /*
