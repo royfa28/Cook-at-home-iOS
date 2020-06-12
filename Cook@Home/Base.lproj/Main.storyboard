@@ -191,11 +191,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Xr-3o-P4k">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Xr-3o-P4k">
                                 <rect key="frame" x="16" y="444.5" width="382" height="275.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeList" rowHeight="140" id="IQg-jn-LjU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recipeList" rowHeight="140" id="IQg-jn-LjU" customClass="HomepageRecipesCell">
                                         <rect key="frame" x="0.0" y="28" width="382" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IQg-jn-LjU" id="f6K-XI-LS0">
@@ -216,17 +216,28 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe tags:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sd-1f-aLK">
+                                                    <rect key="frame" x="149" y="60" width="95" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Uy8-Z0-SmO" firstAttribute="leading" secondItem="f6K-XI-LS0" secondAttribute="leading" constant="12" id="69j-O4-jTv"/>
                                                 <constraint firstAttribute="trailing" secondItem="dDH-j6-c5H" secondAttribute="trailing" constant="8" id="Env-rV-7cV"/>
                                                 <constraint firstItem="Uy8-Z0-SmO" firstAttribute="top" secondItem="f6K-XI-LS0" secondAttribute="top" constant="8" id="VGk-43-OsK"/>
                                                 <constraint firstAttribute="bottom" secondItem="Uy8-Z0-SmO" secondAttribute="bottom" constant="7" id="bCa-WB-8XJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="2sd-1f-aLK" secondAttribute="trailing" constant="138" id="mK9-aZ-tNF"/>
+                                                <constraint firstItem="2sd-1f-aLK" firstAttribute="top" secondItem="dDH-j6-c5H" secondAttribute="bottom" constant="27" id="p67-Sy-XK5"/>
                                                 <constraint firstItem="dDH-j6-c5H" firstAttribute="leading" secondItem="Uy8-Z0-SmO" secondAttribute="trailing" constant="12" id="wGg-da-mth"/>
                                                 <constraint firstItem="dDH-j6-c5H" firstAttribute="top" secondItem="f6K-XI-LS0" secondAttribute="top" constant="12" id="zmg-ZN-UzX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="recipeImage" destination="Uy8-Z0-SmO" id="CO6-rA-2Lu"/>
+                                            <outlet property="recipeName" destination="dDH-j6-c5H" id="neq-Cb-bFY"/>
+                                            <outlet property="recipeTags" destination="2sd-1f-aLK" id="Qjk-NJ-msj"/>
                                             <segue destination="Qsx-X4-71a" kind="show" id="9TF-a7-V5i"/>
                                         </connections>
                                     </tableViewCell>
@@ -266,6 +277,7 @@
                             <constraint firstItem="4cJ-Ju-tXl" firstAttribute="top" secondItem="6T4-GC-ek1" secondAttribute="bottom" constant="8" id="m7U-cO-13s"/>
                             <constraint firstItem="4Xr-3o-P4k" firstAttribute="trailing" secondItem="WrQ-bR-qnF" secondAttribute="trailing" constant="-16" id="oWm-nu-Ttq"/>
                             <constraint firstItem="4Xr-3o-P4k" firstAttribute="top" secondItem="ogq-vD-5eM" secondAttribute="bottom" constant="8" id="rMR-7h-HpQ"/>
+                            <constraint firstItem="WrQ-bR-qnF" firstAttribute="bottom" secondItem="4Xr-3o-P4k" secondAttribute="bottom" constant="44" id="tZp-8x-7W0"/>
                             <constraint firstItem="fN2-6m-DnT" firstAttribute="top" secondItem="4cJ-Ju-tXl" secondAttribute="bottom" constant="12" id="vRK-Om-DWL"/>
                             <constraint firstItem="Oxm-xt-jug" firstAttribute="centerX" secondItem="fmc-0A-Z54" secondAttribute="centerX" id="xcj-OL-296"/>
                             <constraint firstItem="yCR-4W-dUh" firstAttribute="centerX" secondItem="WrQ-bR-qnF" secondAttribute="centerX" id="xmH-Q9-dzB"/>
@@ -277,6 +289,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FCg-kC-BhY"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="4Xr-3o-P4k" id="thO-nD-zW1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1fE-pi-AaZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -742,8 +757,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="f1f-3H-Y1s" kind="relationship" relationship="viewControllers" id="Q9i-6A-yL6"/>
-                        <segue destination="H7Y-25-K5Y" kind="relationship" relationship="viewControllers" id="hUm-NB-fUp"/>
+                        <segue destination="f1f-3H-Y1s" kind="relationship" relationship="viewControllers" id="Mhv-dB-glW"/>
+                        <segue destination="H7Y-25-K5Y" kind="relationship" relationship="viewControllers" id="U32-mw-ARR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EyP-AW-M26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

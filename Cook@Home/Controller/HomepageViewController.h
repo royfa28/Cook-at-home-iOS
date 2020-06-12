@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@import Firebase;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomepageViewController : UIViewController
+@interface HomepageViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic) NSMutableArray *data;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property FIRFirestore *firestore;
+@property FIRCollectionReference *recipesColRef;
 
 @end
 

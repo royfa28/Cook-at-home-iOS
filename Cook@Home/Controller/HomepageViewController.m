@@ -7,16 +7,92 @@
 //
 
 #import "HomepageViewController.h"
+#import "HomepageRecipesCell.h"
 
 @interface HomepageViewController ()
 
 @end
 
-@implementation HomepageViewController
+@implementation HomepageViewController{
+    NSMutableArray<FIRDocumentSnapshot *> *_recipes;
+}
+
+@synthesize data, firestore, recipesColRef, tableView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    firestore = FIRFirestore.firestore;
+    
+    data = [[NSMutableArray alloc] init];
+    recipesColRef = [firestore collectionWithPath:@"Recipes"];
+    [self getRecipes];
+}
+
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [data count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    HomepageRecipesCell *cell = (HomepageRecipesCell *)[tableView dequeueReusableCellWithIdentifier:@"recipeList"];
+    FIRDocumentSnapshot *recipesList = _recipes[indexPath.row];
+
+    NSLog(@"Recipe name: %@", recipesList);
+    
+    cell.recipeName.text = recipesList[@"recipeName"];
+    cell.recipeTags.text = recipesList[@"recipeTags"];
+
+    //Get image URL
+//    NSString *result = recipesList[@"photoUrl"];
+//    NSData *imageData = [NSData dataWithContentsOfURL: [NSURL URLWithString:result]];
+//    cell.recipeImage.image = [UIImage imageWithData:imageData];
+
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 140;
+}
+
+- (void) getRecipes{
+    
+    [recipesColRef getDocumentsWithCompletion:^(FIRQuerySnapshot * _Nullable snapshot, NSError * _Nullable error) {
+        if(snapshot == nil){
+            [self genericError:[NSString stringWithFormat:@"Error fetching document: %@", error]];
+        } else{
+            for (FIRDocumentSnapshot *document in snapshot.documents){
+                self->_recipes = [snapshot.documents copy];
+                NSLog(@" %@", document[@"recipeName"]);
+                
+                [self->data addObject:document.data];
+                [self.tableView reloadData];
+                NSString *database = self->data;
+                NSLog(@" %@", self->_recipes);
+            }
+                
+        }
+    }];
+}
+
+-(void)genericError:(NSString *)strmessage{
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+        message: strmessage
+        preferredStyle:UIAlertControllerStyleAlert];
+     
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction * action) {
+        [self getRecipes];
+    }];
+     
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 /*
