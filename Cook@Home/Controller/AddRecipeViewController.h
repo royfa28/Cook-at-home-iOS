@@ -7,10 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+@import Firebase;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AddRecipeViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UITextField *recipeName;
+@property (weak, nonatomic) IBOutlet UITextField *recipeTags;
+@property (weak, nonatomic) IBOutlet UITextView *recipeIngredients;
+@property (weak, nonatomic) IBOutlet UITextView *recipeInstruction;
+
+@property FIRCollectionReference *recipesColRef;
+@property FIRFirestore *firestore;
+
+- (IBAction)addImageBtn:(id)sender;
+- (IBAction)submitBtn:(id)sender;
+- (IBAction)cancelBtn:(id)sender;
+
 
 @end
 

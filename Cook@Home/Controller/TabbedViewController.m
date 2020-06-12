@@ -20,6 +20,7 @@
     
 }
 
+// Hide the navigation bar that show go back to Login screen (Couldn't find another way to do this)
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
