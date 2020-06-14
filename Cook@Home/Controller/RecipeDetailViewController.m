@@ -14,33 +14,49 @@
 
 @implementation RecipeDetailViewController
 
-@synthesize recipeName,recipeTags, recipeAuthor, recipeIngredients, recipeInstruction;
+@synthesize recipeTags, recipeAuthor, recipeIngredients, recipeInstruction;
 @synthesize cancelBtn, submitBtn, editBtn;
-@synthesize recipes, firestore, authorRef;
+@synthesize recipes, firestore, authorRef, recipeColRef;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = recipes[@"recipeName"];
 
     self.navigationController.navigationBarHidden = NO;
-
-    recipeTags.text = [NSString stringWithFormat:@"Tags: %@", recipes[@"recipeTags"]];
-    recipeIngredients.text = recipes[@"recipeIngredients"];
-    recipeInstruction.text = recipes[@"recipeInstruction"];
-
+    
+    firestore = FIRFirestore.firestore;
+    
     NSLog(@"Doc ID: %@", recipes.documentID);
-    [self findName:recipes[@"userID"]];
     
     cancelBtn.hidden = YES;
     submitBtn.hidden = YES;
-    [self checkAuthorToUser];
     
+    [self getData:recipes.documentID];
+    [self checkAuthorToUser];
+    [self findName:recipes[@"userID"]];
+    
+    NSLog(@"Doc snapshot: %@", recipes);
+    NSLog(@"Doc id From detail: %@", recipes.documentID);
+}
+
+- (void)getData:(NSString *)recipeID{
+    recipeColRef = [[firestore collectionWithPath:@"Recipes"] documentWithPath:recipeID];
+    
+    [recipeColRef addSnapshotListener:^(FIRDocumentSnapshot * _Nullable snapshot, NSError * _Nullable error) {
+        if(snapshot == nil){
+            NSLog(@"Error fetching document: %@", error);
+            return;
+        }else{
+            self.navigationItem.title = snapshot.data[@"recipeName"];
+            self->recipeTags.text = snapshot.data[@"recipeTags"];
+            self->recipeIngredients.text = snapshot.data[@"recipeIngredients"];
+            self->recipeInstruction.text = snapshot.data[@"recipeInstruction"];
+        }
+    }];
 }
 
 - (void)findName:(NSString *)authorID{
-    firestore = FIRFirestore.firestore;
+
     authorRef = [[firestore collectionWithPath:@"Users"] documentWithPath: authorID];
-    
     [authorRef getDocumentWithCompletion:^(FIRDocumentSnapshot * _Nullable snapshot, NSError * _Nullable error) {
         if(snapshot.exists){
             
@@ -72,11 +88,25 @@
 
 - (IBAction)cancelBtnClick:(id)sender {
     [self nonEditable:@"no"];
+    [self viewDidLoad];
 }
 
 - (IBAction)submitBtnClick:(id)sender {
     
     [self nonEditable:@"no"];
+    recipeColRef = [[firestore collectionWithPath:@"Recipes"] documentWithPath:recipes.documentID];
+    
+    [recipeColRef updateData:@{
+        @"recipeIngredients": recipeIngredients.text,
+        @"recipeInstruction": recipeInstruction.text
+    } completion:^(NSError * _Nullable error) {
+        if(error != nil){
+            NSLog(@"Error writing document: %@", error);
+        } else{
+            [self viewDidLoad];
+        }
+    }];
+    
 }
 
 - (IBAction)dislikeBtn:(id)sender {

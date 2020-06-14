@@ -24,6 +24,7 @@
     // Do any additional setup after loading the view.
     firestore = FIRFirestore.firestore;
     
+    // Initialized an array for local usage
     data = [[NSMutableArray alloc] init];
     recipesColRef = [firestore collectionWithPath:@"Recipes"];
     [self getRecipes];
@@ -74,6 +75,7 @@
         }
         else{
             self->_recipes = [snapshot.documents copy];
+            [self->data removeAllObjects];
             NSLog(@"Recipes %@", snapshot.documents);
             // Listen for snapshot changes
             for (FIRDocumentSnapshot *document in snapshot.documents){

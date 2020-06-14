@@ -66,6 +66,9 @@ NSString *uid;
 }
 
 - (IBAction)cancelBtn:(id)sender {
+    UIViewController *uvc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"Homepage"];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController pushViewController:uvc animated:YES];
 }
 
 - (IBAction)addImageBtn:(id)sender {
@@ -80,7 +83,8 @@ NSString *uid;
         @"recipeName":          recipeName.text,
         @"recipeTags":          recipeTags.text,
         @"recipeIngredients":   recipeIngredients.text,
-        @"recipeInstruction":   recipeInstruction.text
+        @"recipeInstruction":   recipeInstruction.text,
+        @"userID":              uid
         
     }completion:^(NSError * _Nullable error) {
         

@@ -15,10 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property FIRDocumentSnapshot *recipes;
 @property FIRFirestore *firestore;
-@property FIRDocumentReference *authorRef;
+@property FIRDocumentReference *authorRef, *recipeColRef;
 
 @property (weak, nonatomic) IBOutlet UIImageView *recipeImage;
-@property (weak, nonatomic) IBOutlet UILabel *recipeName;
 @property (weak, nonatomic) IBOutlet UILabel *recipeAuthor;
 @property (weak, nonatomic) IBOutlet UITextView *recipeIngredients;
 @property (weak, nonatomic) IBOutlet UITextView *recipeInstruction;

@@ -30,17 +30,19 @@
     data = [[NSMutableArray alloc] init];
     firestore = FIRFirestore.firestore;
     myRecipesColRef = [[[firestore collectionWithPath:@"Users"] documentWithPath:uid] collectionWithPath:@"User Recipes"];
+    recipesColRef = [firestore collectionWithPath:@"Recipes"];
     
     // This function is to get the whole documents in the collection of recipes based on the user ID
-    [myRecipesColRef getDocumentsWithCompletion:^(FIRQuerySnapshot *snapshot, NSError *error) {
+    [myRecipesColRef addSnapshotListener:^(FIRQuerySnapshot * _Nullable snapshot, NSError * _Nullable error) {
         if(snapshot == nil){
-            NSLog(@"Error fetching document: %@", error);
-        }else{
+            NSLog(@"Error fetching documents: %@", error);
+        }
+        else{
+            self->_myRecipes = [snapshot.documents copy];
+            NSLog(@"Recipes %@", _myRecipes);
+            // Listen for snapshot changes
             for (FIRDocumentSnapshot *document in snapshot.documents){
-                
-                self->_myRecipes = [snapshot.documents copy];
                 [self->data addObject:document.data];
-                NSLog(@"My recipes: %@", self->data);
                 [self.tableView reloadData];
             }
         }
@@ -76,6 +78,28 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FIRDocumentSnapshot *recipe = _myRecipes[indexPath.row];
+
+}
+
+#pragma mark - Navigation
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    
+    // Pass the selected object to the new view controller.
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    FIRDocumentSnapshot *recipe = _myRecipes[indexPath.row];
+    
+    NSLog(@"Doc id from MyRecipe: %@", recipe);
+    if([segue.identifier isEqualToString:@"myRecipeDetail"]) {
+        
+        RecipeDetailViewController *destViewController = segue.destinationViewController;
+        destViewController.recipes = recipe;
+    }
+}
+
 #pragma mark - Firestore function
 - (void)delete:(id)sender{
     
@@ -97,7 +121,7 @@
     }];
     
     // Deleting recipe from Recipes path
-    recipesColRef = [firestore collectionWithPath:@"Recipes"];
+    
     [[recipesColRef documentWithPath:[myRecipe documentID]] deleteDocumentWithCompletion:^(NSError * _Nullable error) {
         if (error != nil){
                 NSLog(@"Error removing document: %@", error);

@@ -13,6 +13,7 @@
 		B01E4F5D24939B1E00B15BCC /* RecipeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E4F5C24939B1E00B15BCC /* RecipeDetailViewController.m */; };
 		B01E4F602493AA1600B15BCC /* MyRecipeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E4F5F2493AA1600B15BCC /* MyRecipeTableViewCell.m */; };
 		B01E4F632493AAF900B15BCC /* MyRecipeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B01E4F622493AAF900B15BCC /* MyRecipeTableViewController.m */; };
+		B03465202496173700E2F275 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B034651F2496173700E2F275 /* ProfileViewController.m */; };
 		B04F3FC5248CB6D90033E4BC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B04F3FC4248CB6D90033E4BC /* GoogleService-Info.plist */; };
 		B04F3FD1248CBDC80033E4BC /* RegisterLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */; };
 		B04F3FD4249240630033E4BC /* HomepageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B04F3FD3249240630033E4BC /* HomepageViewController.m */; };
@@ -66,6 +67,8 @@
 		B01E4F5F2493AA1600B15BCC /* MyRecipeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRecipeTableViewCell.m; sourceTree = "<group>"; };
 		B01E4F612493AAF900B15BCC /* MyRecipeTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyRecipeTableViewController.h; sourceTree = "<group>"; };
 		B01E4F622493AAF900B15BCC /* MyRecipeTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyRecipeTableViewController.m; sourceTree = "<group>"; };
+		B034651E2496173700E2F275 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		B034651F2496173700E2F275 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		B04F3FC4248CB6D90033E4BC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B04F3FCF248CBDC80033E4BC /* RegisterLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterLoginViewController.h; sourceTree = "<group>"; };
 		B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterLoginViewController.m; sourceTree = "<group>"; };
@@ -173,12 +176,14 @@
 				B01E4F622493AAF900B15BCC /* MyRecipeTableViewController.m */,
 				B04F3FE124931FCB0033E4BC /* NavigationViewController.h */,
 				B04F3FE224931FCB0033E4BC /* NavigationViewController.m */,
+				B034651E2496173700E2F275 /* ProfileViewController.h */,
+				B034651F2496173700E2F275 /* ProfileViewController.m */,
+				B01E4F5B24939B1E00B15BCC /* RecipeDetailViewController.h */,
+				B01E4F5C24939B1E00B15BCC /* RecipeDetailViewController.m */,
 				B04F3FCF248CBDC80033E4BC /* RegisterLoginViewController.h */,
 				B04F3FD0248CBDC80033E4BC /* RegisterLoginViewController.m */,
 				B04F3FDE24931F8C0033E4BC /* TabbedViewController.h */,
 				B04F3FDF24931F8C0033E4BC /* TabbedViewController.m */,
-				B01E4F5B24939B1E00B15BCC /* RecipeDetailViewController.h */,
-				B01E4F5C24939B1E00B15BCC /* RecipeDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -487,6 +492,7 @@
 				B01E4F5D24939B1E00B15BCC /* RecipeDetailViewController.m in Sources */,
 				B09145432480DC54000C6389 /* ViewController.m in Sources */,
 				B04F3FE324931FCB0033E4BC /* NavigationViewController.m in Sources */,
+				B03465202496173700E2F275 /* ProfileViewController.m in Sources */,
 				B091453D2480DC54000C6389 /* AppDelegate.m in Sources */,
 				B01E4F632493AAF900B15BCC /* MyRecipeTableViewController.m in Sources */,
 				B09145492480DC54000C6389 /* Cook_Home.xcdatamodeld in Sources */,
