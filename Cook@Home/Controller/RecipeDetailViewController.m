@@ -15,20 +15,26 @@
 @implementation RecipeDetailViewController
 
 @synthesize recipeName,recipeTags, recipeAuthor, recipeIngredients, recipeInstruction;
+@synthesize cancelBtn, submitBtn, editBtn;
 @synthesize recipes, firestore, authorRef;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+    self.navigationItem.title = recipes[@"recipeName"];
+
     self.navigationController.navigationBarHidden = NO;
-    
-    recipeName.text = [NSString stringWithFormat:@"Recipe for: %@", recipes[@"recipeName"]];
+
     recipeTags.text = [NSString stringWithFormat:@"Tags: %@", recipes[@"recipeTags"]];
     recipeIngredients.text = recipes[@"recipeIngredients"];
     recipeInstruction.text = recipes[@"recipeInstruction"];
-    
+
+    NSLog(@"Doc ID: %@", recipes.documentID);
     [self findName:recipes[@"userID"]];
+    
+    cancelBtn.hidden = YES;
+    submitBtn.hidden = YES;
+    [self checkAuthorToUser];
+    
 }
 
 - (void)findName:(NSString *)authorID{
@@ -49,13 +55,61 @@
     }];
 }
 
+- (void)checkAuthorToUser{
+    
+    NSString *uid;
+    FIRUser *user = [FIRAuth auth].currentUser;
+    if(user){
+        uid = user.uid;
+    }
+    
+    if([uid isEqualToString:recipes[@"userID"]]){
+        editBtn.hidden = NO;
+    }else{
+        editBtn.hidden = YES;
+    }
+}
+
+- (IBAction)cancelBtnClick:(id)sender {
+    [self nonEditable:@"no"];
+}
+
+- (IBAction)submitBtnClick:(id)sender {
+    
+    [self nonEditable:@"no"];
+}
+
 - (IBAction)dislikeBtn:(id)sender {
 }
 
 - (IBAction)likeBtn:(id)sender {
 }
 
+- (IBAction)editBtnClick:(id)sender {
+    
+    [self nonEditable:@"yes"];
 
+}
+
+- (void)nonEditable:(NSString *)value{
+    
+    if([value isEqualToString:@"no"]){
+        editBtn.hidden = NO;
+        cancelBtn.hidden = YES;
+        submitBtn.hidden = YES;
+        
+        recipeIngredients.editable = NO;
+        recipeInstruction.editable = NO;
+    }else{
+        editBtn.hidden = YES;
+        cancelBtn.hidden = NO;
+        submitBtn.hidden = NO;
+        
+        recipeIngredients.editable = YES;
+        recipeInstruction.editable = YES;
+    }
+    
+}
 /*
 #pragma mark - Navigation
 

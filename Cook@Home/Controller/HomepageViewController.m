@@ -29,6 +29,11 @@
     [self getRecipes];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -41,9 +46,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     HomepageRecipesCell *cell = (HomepageRecipesCell *)[tableView dequeueReusableCellWithIdentifier:@"recipeList"];
-    FIRDocumentSnapshot *recipesList = _recipes[indexPath.row];
+    FIRDocumentSnapshot *recipesList = data[indexPath.row];
 
-    NSLog(@"Recipe name: %@", recipesList);
+    cell.layer.borderColor = UIColor.orangeColor.CGColor;
+//    NSLog(@"Recipe name: %@", recipesList);
     
     cell.recipeName.text = recipesList[@"recipeName"];
     cell.recipeTags.text = recipesList[@"recipeTags"];
@@ -61,19 +67,19 @@
 }
 
 - (void) getRecipes{
-    
-    [recipesColRef getDocumentsWithCompletion:^(FIRQuerySnapshot * _Nullable snapshot, NSError * _Nullable error) {
+
+    [recipesColRef addSnapshotListener:^(FIRQuerySnapshot * _Nullable snapshot, NSError * _Nullable error) {
         if(snapshot == nil){
-            [self genericError:[NSString stringWithFormat:@"Error fetching document: %@", error]];
-        } else{
+            NSLog(@"Error fetching documents: %@", error);
+        }
+        else{
+            self->_recipes = [snapshot.documents copy];
+            NSLog(@"Recipes %@", snapshot.documents);
+            // Listen for snapshot changes
             for (FIRDocumentSnapshot *document in snapshot.documents){
-                self->_recipes = [snapshot.documents copy];
-                NSLog(@" %@", document[@"recipeName"]);
-                
                 [self->data addObject:document.data];
                 [self.tableView reloadData];
             }
-                
         }
     }];
 }
@@ -94,7 +100,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    FIRDocumentSnapshot *recipe = _recipes[indexPath.row];
+    FIRDocumentSnapshot *recipe = data[indexPath.row];
 
 }
 
