@@ -45,9 +45,10 @@ NSString *userID;
 }
 
 - (IBAction)editPassBtn:(id)sender {
-    
+    [self editPassword];
 }
 
+#pragma mark - UIAlertView  methods
 - (void)editName{
     
     UIAlertController* dialogBox = [UIAlertController alertControllerWithTitle:@"Insert new full name"
@@ -76,18 +77,103 @@ NSString *userID;
     [self presentViewController:dialogBox animated:YES completion:nil];
 }
 
+- (void)editPassword{
+    UIAlertController* dialogBox = [UIAlertController alertControllerWithTitle:@"Insert new password"
+        message:@""
+        preferredStyle:UIAlertControllerStyleAlert];
+     
+    UIAlertAction *submitButton = [UIAlertAction actionWithTitle:@"Submit" style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction * action) {
+        [self newPass:(dialogBox.textFields[0].text) repeatPass:(dialogBox.textFields[1].text)];
+    }];
+    
+    UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive
+        handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [dialogBox addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"New password";
+        textField.textColor = [UIColor blueColor];
+        textField.secureTextEntry = true;
+        textField.keyboardType = UIKeyboardTypeDefault;
+    }];
+    
+    [dialogBox addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"Repeat new password";
+        textField.textColor = [UIColor blueColor];
+        textField.secureTextEntry = true;
+        textField.keyboardType = UIKeyboardTypeDefault;
+    }];
+     
+    [dialogBox addAction:submitButton];
+    [dialogBox addAction:cancelButton];
+    [self presentViewController:dialogBox animated:YES completion:nil];
+}
+
+-(void)displayAlertView:(NSString *)strMessage{
+    
+    // Making own alert box
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"My Alert"
+        message:strMessage
+        preferredStyle:UIAlertControllerStyleAlert];
+     
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+        handler:^(UIAlertAction * action) {}];
+     
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (void)changeName:(NSString *)newName{
     
     [userDocRef updateData:@{
         @"fullName": newName
     }completion:^(NSError * _Nullable error) {
         if( error != nil){
-            NSLog(@"Error updating document: %@", error);
+            [self displayAlertView:error.localizedDescription];
         }else{
-            NSLog(@"Document successfully udpate");
+            [self displayAlertView:@"Name updated"];
             [self viewDidLoad];
         }
     }];
+}
+
+- (void)newPass:(NSString *)newPassword repeatPass: (NSString *)repeatPass{
+    NSLog(@"New pass: %@", newPassword);
+    NSLog(@"Repeat pass: %@", repeatPass);
+    
+    if([self validation:newPassword repeatPass:repeatPass]){
+        FIRUser *user = [FIRAuth auth].currentUser;
+        [user updatePassword:newPassword completion:^(NSError * _Nullable error) {
+            if (error) {
+                [self displayAlertView:error.localizedDescription];
+                NSLog(@"Error in FIRAuth := %@",error.localizedDescription);
+            }
+            else{
+                NSLog(@"Password changed: ");
+            }
+        }];
+    }
+    
+}
+
+- (BOOL)validation:(NSString *)newPass repeatPass: (NSString *)repeatPass{
+    // Checking all 2 input fields for input
+    if (newPass.length <= 0){
+        [self displayAlertView:@"Please enter password"];
+        return NO;
+    }
+    else if (repeatPass.length <= 0){
+        [self displayAlertView:@"Please enter confirm password"];
+        return NO;
+    }
+    else if (![newPass isEqualToString:repeatPass]){
+        [self displayAlertView:@"Password and confirm password does not match"];
+        return NO;
+    }
+    
+    return YES;
 }
 
 @end

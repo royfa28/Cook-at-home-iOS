@@ -37,7 +37,6 @@
     if([self validation]){
         [[FIRAuth auth] createUserWithEmail:registerEmailText.text password:registerPassText.text
                                  completion:^(FIRAuthDataResult * _Nullable authResult, NSError * _Nullable error) {
-
             if (error) {
                 [self displayAlertView:error.localizedDescription];
                 NSLog(@"Error in FIRAuth := %@",error.localizedDescription);
