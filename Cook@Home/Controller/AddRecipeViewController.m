@@ -29,7 +29,6 @@ NSString *uid;
     if(user){
         uid = user.uid;
     }
-    
     // Initialize the firestore
     firestore = FIRFirestore.firestore;
 }
@@ -56,7 +55,7 @@ NSString *uid;
             if( error != nil){
                 NSLog(@"Error");
             }else{
-                
+
                 // If the write is successful it will go to another function
                 [self addToUser:ref.documentID];
             }
@@ -72,6 +71,49 @@ NSString *uid;
 }
 
 - (IBAction)addImageBtn:(id)sender {
+    
+    if (! [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        [self displayAlertView:@"Camera not found"];
+
+    } else {
+
+        UIImagePickerController *cameraPicker = [[UIImagePickerController alloc] init];
+        cameraPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        cameraPicker.delegate =self;
+        // Show image picker
+        [self presentViewController:cameraPicker animated:YES completion:nil];
+    }
+}
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    // Get the selected image
+//    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
+    
+    // Generate data from image selected
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.8);
+    
+    // Create file metadata
+    FIRStorageMetadata *metaData = [[FIRStorageMetadata alloc] init];
+    metaData.contentType = @"image/jpeg";
+    
+    // Get a referenece to the storage service using firebase default
+    FIRStorage *storage = [FIRStorage storage];
+    
+    // Create storage reference
+    FIRStorageReference *storageRef = [storage reference];
+    
+    // Upload file and metadata to the object
+    FIRStorageUploadTask *uploadTask = [storageRef putData:imageData metadata:metaData];
+    
+    // Listen for state changes
+    [uploadTask observeStatus:FIRStorageTaskStatusResume handler:^(FIRStorageTaskSnapshot * _Nonnull snapshot) {
+        
+    }];
+}
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+
 }
 
 // This function is ot write it on user page
